@@ -20,6 +20,7 @@ function setup() {
   mic.start();
   frameRate(30);
 
+
   for (let i = 0; i < 20; i++) {
     carrotArray.push(new Carrot(random(width), random(height), random(this.rotation), random(this.speed)));
   }
