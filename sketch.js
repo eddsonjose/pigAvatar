@@ -11,6 +11,7 @@ let num = -0.5;
 let healthBar = 600;
 let meal = 0;
 let health = 5;
+let userClick = false;
 //------------------------------------------------------------
 function setup() {
   createCanvas(600, 600);
@@ -28,6 +29,7 @@ function draw() {
   background(colorRed, colorGreen, colorBlue);
   micL = mic.getLevel(0.8);
 
+  if (userClick) {
   for (let i = 0; i < carrotArray.length; i++) {
     carrotArray[i].move();
     carrotArray[i].display();
@@ -47,7 +49,14 @@ function draw() {
   // console.log(health, meal);
   // drawGrid();
 }
+}
 //------------------------------------------------------------
+function mousePressed() {
+  mic = new p5.AudioIn()
+  mic.start();
+  userClick = true;
+}
+}
 function pigHealth() {
   fill(100, 200, 100);
   rect(0, 0, healthBar, 20);
@@ -83,7 +92,7 @@ function pigHealth() {
 function eat() {
   //if statement, affects carrot's alpha color
   if (mouseX >= 250 && mouseX <= 350 && mouseY >= 340 && mouseY <= 370) {
-    mouth = 20;    
+    mouth = 20;
     foodHide = 0;
   } else if (mouseX >= 250 && mouseX <= 350 && mouseY >= 550) {
     foodHide = 255;
