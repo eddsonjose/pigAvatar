@@ -11,7 +11,6 @@ let num = -0.5;
 let healthBar = 600;
 let meal = 0;
 let health = 5;
-let userClick = false;
 //------------------------------------------------------------
 function setup() {
   createCanvas(600, 600);
@@ -29,8 +28,6 @@ function draw() {
   background(colorRed, colorGreen, colorBlue);
   micL = mic.getLevel(0.8);
 
-
-
   mouthMove = map(mouth, 0, 0.01, 45, 60, true);
   earMove = map(micL, 0, 0.01, 1.1, 1, true);
   eyesX = map(mouseX, 0, width, 55, 65, true);
@@ -44,7 +41,6 @@ function draw() {
   pigHealth();
   // console.log(health, meal);
   // drawGrid();
-
 }
 //------------------------------------------------------------
 
