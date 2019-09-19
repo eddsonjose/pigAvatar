@@ -25,12 +25,17 @@ function setup() {
   }
 }
 //------------------------------------------------------------
+function mousePressed() {
+  mic = new p5.AudioIn()
+  mic.start();
+  userClick = true;
+}
+//------------------------------------------------------------
 function draw() {
   background(colorRed, colorGreen, colorBlue);
-  micL = mic.getLevel(0.8);
 
   if (userClick) {
-
+  micL = mic.getLevel(0.8);
   mouthMove = map(mouth, 0, 0.01, 45, 60, true);
   earMove = map(micL, 0, 0.01, 1.1, 1, true);
   eyesX = map(mouseX, 0, width, 55, 65, true);
@@ -48,11 +53,6 @@ function draw() {
 }
 //------------------------------------------------------------
 
-function mousePressed() {
-  mic = new p5.AudioIn()
-  mic.start();
-  userClick = true;
-}
 function pigHealth() {
   fill(100, 200, 100);
   rect(0, 0, healthBar, 20);
