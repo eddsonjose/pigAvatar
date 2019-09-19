@@ -29,11 +29,7 @@ function draw() {
   background(colorRed, colorGreen, colorBlue);
   micL = mic.getLevel(0.8);
 
-  if (userClick) {
-  for (let i = 0; i < carrotArray.length; i++) {
-    carrotArray[i].move();
-    carrotArray[i].display();
-  }
+
 
   mouthMove = map(mouth, 0, 0.01, 45, 60, true);
   earMove = map(micL, 0, 0.01, 1.1, 1, true);
@@ -48,14 +44,10 @@ function draw() {
   pigHealth();
   // console.log(health, meal);
   // drawGrid();
-}
+
 }
 //------------------------------------------------------------
-function mousePressed() {
-  mic = new p5.AudioIn()
-  mic.start();
-  userClick = true;
-}
+
 }
 function pigHealth() {
   fill(100, 200, 100);
